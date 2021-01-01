@@ -45,7 +45,7 @@ InstancingApp_debug_libraries += NvAssetLoaderD
 InstancingApp_debug_libraries += NvGamepadD
 #InstancingApp_debug_libraries += NvGLUtilsD
 InstancingApp_debug_libraries += NvModelD
-InstancingApp_debug_libraries += NvUID NvGLUtilsD glfw3 
+InstancingApp_debug_libraries += NvUID NvGLUtilsD glfw 
 InstancingApp_debug_common_cflags	:= $(InstancingApp_custom_cflags)
 InstancingApp_debug_common_cflags    += -MMD
 InstancingApp_debug_common_cflags    += $(addprefix -D, $(InstancingApp_debug_defines))
@@ -63,7 +63,7 @@ InstancingApp_debug_cppflags  += -g
 InstancingApp_debug_lflags    := $(InstancingApp_custom_lflags)
 InstancingApp_debug_lflags    += $(addprefix -L, $(InstancingApp_debug_lpaths))
 InstancingApp_debug_lflags    += -Wl,--no-as-needed $(addprefix -l, $(InstancingApp_debug_libraries))
-InstancingApp_debug_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+InstancingApp_debug_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 InstancingApp_debug_lflags  += -m32
 InstancingApp_debug_objsdir  = $(OBJS_DIR)/InstancingApp_debug
 InstancingApp_debug_cpp_o    = $(addprefix $(InstancingApp_debug_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(InstancingApp_cppfiles)))))
@@ -150,7 +150,7 @@ InstancingApp_release_libraries += NvAssetLoader
 InstancingApp_release_libraries += NvGamepad
 #InstancingApp_release_libraries += NvGLUtils
 InstancingApp_release_libraries += NvModel
-InstancingApp_release_libraries += NvUI NvGLUtils glfw3 
+InstancingApp_release_libraries += NvUI NvGLUtils glfw 
 InstancingApp_release_common_cflags	:= $(InstancingApp_custom_cflags)
 InstancingApp_release_common_cflags    += -MMD
 InstancingApp_release_common_cflags    += $(addprefix -D, $(InstancingApp_release_defines))
@@ -168,7 +168,7 @@ InstancingApp_release_cppflags  += -O2
 InstancingApp_release_lflags    := $(InstancingApp_custom_lflags)
 InstancingApp_release_lflags    += $(addprefix -L, $(InstancingApp_release_lpaths))
 InstancingApp_release_lflags    += -Wl,--no-as-needed $(addprefix -l, $(InstancingApp_release_libraries))
-InstancingApp_release_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+InstancingApp_release_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 InstancingApp_release_lflags  += -m32
 InstancingApp_release_objsdir  = $(OBJS_DIR)/InstancingApp_release
 InstancingApp_release_cpp_o    = $(addprefix $(InstancingApp_release_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(InstancingApp_cppfiles)))))

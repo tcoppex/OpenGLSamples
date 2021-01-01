@@ -59,7 +59,7 @@ TerrainTessellation_debug_cflags  += -g
 TerrainTessellation_debug_lflags    := $(TerrainTessellation_custom_lflags)
 TerrainTessellation_debug_lflags    += $(addprefix -L, $(TerrainTessellation_debug_lpaths))
 TerrainTessellation_debug_lflags    += -Wl,--start-group $(addprefix -l, $(TerrainTessellation_debug_libraries)) -Wl,--end-group
-TerrainTessellation_debug_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+TerrainTessellation_debug_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 TerrainTessellation_debug_objsdir  := $(OBJS_DIR)/TerrainTessellation_debug
 TerrainTessellation_debug_obj      := 
 TerrainTessellation_debug_cpp_o    = $(addprefix $(TerrainTessellation_debug_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(TerrainTessellation_cppfiles)))))
@@ -142,7 +142,7 @@ TerrainTessellation_release_cflags  += -O2
 TerrainTessellation_release_lflags    := $(TerrainTessellation_custom_lflags)
 TerrainTessellation_release_lflags    += $(addprefix -L, $(TerrainTessellation_release_lpaths))
 TerrainTessellation_release_lflags    += -Wl,--start-group $(addprefix -l, $(TerrainTessellation_release_libraries)) -Wl,--end-group
-TerrainTessellation_release_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+TerrainTessellation_release_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 TerrainTessellation_release_objsdir  := $(OBJS_DIR)/TerrainTessellation_release
 TerrainTessellation_release_obj      := 
 TerrainTessellation_release_cpp_o    = $(addprefix $(TerrainTessellation_release_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(TerrainTessellation_cppfiles)))))

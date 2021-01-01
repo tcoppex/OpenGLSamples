@@ -63,7 +63,7 @@ TextureArrayTerrain_debug_cflags  += -g
 TextureArrayTerrain_debug_lflags    := $(TextureArrayTerrain_custom_lflags)
 TextureArrayTerrain_debug_lflags    += $(addprefix -L, $(TextureArrayTerrain_debug_lpaths))
 TextureArrayTerrain_debug_lflags    += -Wl,--start-group $(addprefix -l, $(TextureArrayTerrain_debug_libraries)) -Wl,--end-group
-TextureArrayTerrain_debug_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+TextureArrayTerrain_debug_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 TextureArrayTerrain_debug_objsdir  := $(OBJS_DIR)/TextureArrayTerrain_debug
 TextureArrayTerrain_debug_obj      := 
 TextureArrayTerrain_debug_cpp_o    = $(addprefix $(TextureArrayTerrain_debug_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(TextureArrayTerrain_cppfiles)))))
@@ -147,7 +147,7 @@ TextureArrayTerrain_release_cflags  += -O2
 TextureArrayTerrain_release_lflags    := $(TextureArrayTerrain_custom_lflags)
 TextureArrayTerrain_release_lflags    += $(addprefix -L, $(TextureArrayTerrain_release_lpaths))
 TextureArrayTerrain_release_lflags    += -Wl,--start-group $(addprefix -l, $(TextureArrayTerrain_release_libraries)) -Wl,--end-group
-TextureArrayTerrain_release_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+TextureArrayTerrain_release_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 TextureArrayTerrain_release_objsdir  := $(OBJS_DIR)/TextureArrayTerrain_release
 TextureArrayTerrain_release_obj      := 
 TextureArrayTerrain_release_cpp_o    = $(addprefix $(TextureArrayTerrain_release_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(TextureArrayTerrain_cppfiles)))))

@@ -57,7 +57,7 @@ MotionBlur_debug_cflags  += -g
 MotionBlur_debug_lflags    := $(MotionBlur_custom_lflags)
 MotionBlur_debug_lflags    += $(addprefix -L, $(MotionBlur_debug_lpaths))
 MotionBlur_debug_lflags    += -Wl,--start-group $(addprefix -l, $(MotionBlur_debug_libraries)) -Wl,--end-group
-MotionBlur_debug_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+MotionBlur_debug_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 MotionBlur_debug_objsdir  := $(OBJS_DIR)/MotionBlur_debug
 MotionBlur_debug_obj      := 
 MotionBlur_debug_cpp_o    = $(addprefix $(MotionBlur_debug_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(MotionBlur_cppfiles)))))
@@ -139,7 +139,7 @@ MotionBlur_release_cflags  += -O2
 MotionBlur_release_lflags    := $(MotionBlur_custom_lflags)
 MotionBlur_release_lflags    += $(addprefix -L, $(MotionBlur_release_lpaths))
 MotionBlur_release_lflags    += -Wl,--start-group $(addprefix -l, $(MotionBlur_release_libraries)) -Wl,--end-group
-MotionBlur_release_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+MotionBlur_release_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 MotionBlur_release_objsdir  := $(OBJS_DIR)/MotionBlur_release
 MotionBlur_release_obj      := 
 MotionBlur_release_cpp_o    = $(addprefix $(MotionBlur_release_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(MotionBlur_cppfiles)))))

@@ -57,7 +57,7 @@ PathRenderingBasic_debug_cflags  += -g
 PathRenderingBasic_debug_lflags    := $(PathRenderingBasic_custom_lflags)
 PathRenderingBasic_debug_lflags    += $(addprefix -L, $(PathRenderingBasic_debug_lpaths))
 PathRenderingBasic_debug_lflags    += -Wl,--start-group $(addprefix -l, $(PathRenderingBasic_debug_libraries)) -Wl,--end-group
-PathRenderingBasic_debug_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+PathRenderingBasic_debug_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 PathRenderingBasic_debug_objsdir  := $(OBJS_DIR)/PathRenderingBasic_debug
 PathRenderingBasic_debug_obj      := 
 PathRenderingBasic_debug_cpp_o    = $(addprefix $(PathRenderingBasic_debug_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(PathRenderingBasic_cppfiles)))))
@@ -139,7 +139,7 @@ PathRenderingBasic_release_cflags  += -O2
 PathRenderingBasic_release_lflags    := $(PathRenderingBasic_custom_lflags)
 PathRenderingBasic_release_lflags    += $(addprefix -L, $(PathRenderingBasic_release_lpaths))
 PathRenderingBasic_release_lflags    += -Wl,--start-group $(addprefix -l, $(PathRenderingBasic_release_libraries)) -Wl,--end-group
-PathRenderingBasic_release_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+PathRenderingBasic_release_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 PathRenderingBasic_release_objsdir  := $(OBJS_DIR)/PathRenderingBasic_release
 PathRenderingBasic_release_obj      := 
 PathRenderingBasic_release_cpp_o    = $(addprefix $(PathRenderingBasic_release_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(PathRenderingBasic_cppfiles)))))

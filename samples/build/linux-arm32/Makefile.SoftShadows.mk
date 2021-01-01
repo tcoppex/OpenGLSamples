@@ -61,7 +61,7 @@ SoftShadows_debug_cflags  += -g
 SoftShadows_debug_lflags    := $(SoftShadows_custom_lflags)
 SoftShadows_debug_lflags    += $(addprefix -L, $(SoftShadows_debug_lpaths))
 SoftShadows_debug_lflags    += -Wl,--start-group $(addprefix -l, $(SoftShadows_debug_libraries)) -Wl,--end-group
-SoftShadows_debug_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+SoftShadows_debug_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 SoftShadows_debug_objsdir  := $(OBJS_DIR)/SoftShadows_debug
 SoftShadows_debug_obj      := 
 SoftShadows_debug_cpp_o    = $(addprefix $(SoftShadows_debug_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(SoftShadows_cppfiles)))))
@@ -143,7 +143,7 @@ SoftShadows_release_cflags  += -O2
 SoftShadows_release_lflags    := $(SoftShadows_custom_lflags)
 SoftShadows_release_lflags    += $(addprefix -L, $(SoftShadows_release_lpaths))
 SoftShadows_release_lflags    += -Wl,--start-group $(addprefix -l, $(SoftShadows_release_libraries)) -Wl,--end-group
-SoftShadows_release_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+SoftShadows_release_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 SoftShadows_release_objsdir  := $(OBJS_DIR)/SoftShadows_release
 SoftShadows_release_obj      := 
 SoftShadows_release_cpp_o    = $(addprefix $(SoftShadows_release_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(SoftShadows_cppfiles)))))

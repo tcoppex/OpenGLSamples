@@ -62,7 +62,7 @@ ParticleUpsampling_debug_cflags  += -g
 ParticleUpsampling_debug_lflags    := $(ParticleUpsampling_custom_lflags)
 ParticleUpsampling_debug_lflags    += $(addprefix -L, $(ParticleUpsampling_debug_lpaths))
 ParticleUpsampling_debug_lflags    += -Wl,--start-group $(addprefix -l, $(ParticleUpsampling_debug_libraries)) -Wl,--end-group
-ParticleUpsampling_debug_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+ParticleUpsampling_debug_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 ParticleUpsampling_debug_objsdir  := $(OBJS_DIR)/ParticleUpsampling_debug
 ParticleUpsampling_debug_obj      := 
 ParticleUpsampling_debug_cpp_o    = $(addprefix $(ParticleUpsampling_debug_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(ParticleUpsampling_cppfiles)))))
@@ -144,7 +144,7 @@ ParticleUpsampling_release_cflags  += -O2
 ParticleUpsampling_release_lflags    := $(ParticleUpsampling_custom_lflags)
 ParticleUpsampling_release_lflags    += $(addprefix -L, $(ParticleUpsampling_release_lpaths))
 ParticleUpsampling_release_lflags    += -Wl,--start-group $(addprefix -l, $(ParticleUpsampling_release_libraries)) -Wl,--end-group
-ParticleUpsampling_release_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+ParticleUpsampling_release_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 ParticleUpsampling_release_objsdir  := $(OBJS_DIR)/ParticleUpsampling_release
 ParticleUpsampling_release_obj      := 
 ParticleUpsampling_release_cpp_o    = $(addprefix $(ParticleUpsampling_release_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(ParticleUpsampling_cppfiles)))))

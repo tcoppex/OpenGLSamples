@@ -50,7 +50,7 @@ ParticleUpsampling_debug_libraries += NvAssetLoaderD
 ParticleUpsampling_debug_libraries += NvGamepadD
 #ParticleUpsampling_debug_libraries += NvGLUtilsD
 ParticleUpsampling_debug_libraries += NvModelD
-ParticleUpsampling_debug_libraries += NvUID NvGLUtilsD glfw3 
+ParticleUpsampling_debug_libraries += NvUID NvGLUtilsD glfw 
 ParticleUpsampling_debug_common_cflags	:= $(ParticleUpsampling_custom_cflags)
 ParticleUpsampling_debug_common_cflags    += -MMD
 ParticleUpsampling_debug_common_cflags    += $(addprefix -D, $(ParticleUpsampling_debug_defines))
@@ -68,7 +68,7 @@ ParticleUpsampling_debug_cppflags  += -g
 ParticleUpsampling_debug_lflags    := $(ParticleUpsampling_custom_lflags)
 ParticleUpsampling_debug_lflags    += $(addprefix -L, $(ParticleUpsampling_debug_lpaths))
 ParticleUpsampling_debug_lflags    += -Wl,--no-as-needed $(addprefix -l, $(ParticleUpsampling_debug_libraries))
-ParticleUpsampling_debug_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+ParticleUpsampling_debug_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 ParticleUpsampling_debug_lflags  += -m32
 ParticleUpsampling_debug_objsdir  = $(OBJS_DIR)/ParticleUpsampling_debug
 ParticleUpsampling_debug_cpp_o    = $(addprefix $(ParticleUpsampling_debug_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(ParticleUpsampling_cppfiles)))))
@@ -155,7 +155,7 @@ ParticleUpsampling_release_libraries += NvAssetLoader
 ParticleUpsampling_release_libraries += NvGamepad
 #ParticleUpsampling_release_libraries += NvGLUtils
 ParticleUpsampling_release_libraries += NvModel
-ParticleUpsampling_release_libraries += NvUI NvGLUtils glfw3 
+ParticleUpsampling_release_libraries += NvUI NvGLUtils glfw 
 ParticleUpsampling_release_common_cflags	:= $(ParticleUpsampling_custom_cflags)
 ParticleUpsampling_release_common_cflags    += -MMD
 ParticleUpsampling_release_common_cflags    += $(addprefix -D, $(ParticleUpsampling_release_defines))
@@ -173,7 +173,7 @@ ParticleUpsampling_release_cppflags  += -O2
 ParticleUpsampling_release_lflags    := $(ParticleUpsampling_custom_lflags)
 ParticleUpsampling_release_lflags    += $(addprefix -L, $(ParticleUpsampling_release_lpaths))
 ParticleUpsampling_release_lflags    += -Wl,--no-as-needed $(addprefix -l, $(ParticleUpsampling_release_libraries))
-ParticleUpsampling_release_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+ParticleUpsampling_release_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 ParticleUpsampling_release_lflags  += -m32
 ParticleUpsampling_release_objsdir  = $(OBJS_DIR)/ParticleUpsampling_release
 ParticleUpsampling_release_cpp_o    = $(addprefix $(ParticleUpsampling_release_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(ParticleUpsampling_cppfiles)))))

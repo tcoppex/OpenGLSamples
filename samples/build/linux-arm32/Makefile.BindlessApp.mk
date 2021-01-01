@@ -58,7 +58,7 @@ BindlessApp_debug_cflags  += -g
 BindlessApp_debug_lflags    := $(BindlessApp_custom_lflags)
 BindlessApp_debug_lflags    += $(addprefix -L, $(BindlessApp_debug_lpaths))
 BindlessApp_debug_lflags    += -Wl,--start-group $(addprefix -l, $(BindlessApp_debug_libraries)) -Wl,--end-group
-BindlessApp_debug_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+BindlessApp_debug_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 BindlessApp_debug_objsdir  := $(OBJS_DIR)/BindlessApp_debug
 BindlessApp_debug_obj      := 
 BindlessApp_debug_cpp_o    = $(addprefix $(BindlessApp_debug_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(BindlessApp_cppfiles)))))
@@ -140,7 +140,7 @@ BindlessApp_release_cflags  += -O2
 BindlessApp_release_lflags    := $(BindlessApp_custom_lflags)
 BindlessApp_release_lflags    += $(addprefix -L, $(BindlessApp_release_lpaths))
 BindlessApp_release_lflags    += -Wl,--start-group $(addprefix -l, $(BindlessApp_release_libraries)) -Wl,--end-group
-BindlessApp_release_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+BindlessApp_release_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 BindlessApp_release_objsdir  := $(OBJS_DIR)/BindlessApp_release
 BindlessApp_release_obj      := 
 BindlessApp_release_cpp_o    = $(addprefix $(BindlessApp_release_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(BindlessApp_cppfiles)))))

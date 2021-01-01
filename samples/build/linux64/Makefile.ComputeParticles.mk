@@ -49,7 +49,7 @@ ComputeParticles_debug_libraries += NvAssetLoaderD
 ComputeParticles_debug_libraries += NvGamepadD
 #ComputeParticles_debug_libraries += NvGLUtilsD
 ComputeParticles_debug_libraries += NvModelD
-ComputeParticles_debug_libraries += NvUID NvGLUtilsD glfw3 
+ComputeParticles_debug_libraries += NvUID NvGLUtilsD glfw 
 ComputeParticles_debug_common_cflags	:= $(ComputeParticles_custom_cflags)
 ComputeParticles_debug_common_cflags    += -MMD
 ComputeParticles_debug_common_cflags    += $(addprefix -D, $(ComputeParticles_debug_defines))
@@ -67,7 +67,7 @@ ComputeParticles_debug_cppflags  += -g
 ComputeParticles_debug_lflags    := $(ComputeParticles_custom_lflags)
 ComputeParticles_debug_lflags    += $(addprefix -L, $(ComputeParticles_debug_lpaths))
 ComputeParticles_debug_lflags    += -Wl,--no-as-needed $(addprefix -l, $(ComputeParticles_debug_libraries))
-ComputeParticles_debug_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+ComputeParticles_debug_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 ComputeParticles_debug_lflags  += -m64
 ComputeParticles_debug_lflags  += -m64
 ComputeParticles_debug_objsdir  = $(OBJS_DIR)/ComputeParticles_debug
@@ -157,7 +157,7 @@ ComputeParticles_release_libraries += NvAssetLoader
 ComputeParticles_release_libraries += NvGamepad
 #ComputeParticles_release_libraries += NvGLUtils
 ComputeParticles_release_libraries += NvModel
-ComputeParticles_release_libraries += NvUI NvGLUtils glfw3 
+ComputeParticles_release_libraries += NvUI NvGLUtils glfw 
 ComputeParticles_release_common_cflags	:= $(ComputeParticles_custom_cflags)
 ComputeParticles_release_common_cflags    += -MMD
 ComputeParticles_release_common_cflags    += $(addprefix -D, $(ComputeParticles_release_defines))
@@ -175,7 +175,7 @@ ComputeParticles_release_cppflags  += -O2
 ComputeParticles_release_lflags    := $(ComputeParticles_custom_lflags)
 ComputeParticles_release_lflags    += $(addprefix -L, $(ComputeParticles_release_lpaths))
 ComputeParticles_release_lflags    += -Wl,--no-as-needed $(addprefix -l, $(ComputeParticles_release_libraries))
-ComputeParticles_release_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+ComputeParticles_release_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 ComputeParticles_release_lflags  += -m64
 ComputeParticles_release_lflags  += -m64
 ComputeParticles_release_objsdir  = $(OBJS_DIR)/ComputeParticles_release

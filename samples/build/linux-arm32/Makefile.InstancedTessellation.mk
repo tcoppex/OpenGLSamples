@@ -57,7 +57,7 @@ InstancedTessellation_debug_cflags  += -g
 InstancedTessellation_debug_lflags    := $(InstancedTessellation_custom_lflags)
 InstancedTessellation_debug_lflags    += $(addprefix -L, $(InstancedTessellation_debug_lpaths))
 InstancedTessellation_debug_lflags    += -Wl,--start-group $(addprefix -l, $(InstancedTessellation_debug_libraries)) -Wl,--end-group
-InstancedTessellation_debug_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+InstancedTessellation_debug_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 InstancedTessellation_debug_objsdir  := $(OBJS_DIR)/InstancedTessellation_debug
 InstancedTessellation_debug_obj      := 
 InstancedTessellation_debug_cpp_o    = $(addprefix $(InstancedTessellation_debug_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(InstancedTessellation_cppfiles)))))
@@ -139,7 +139,7 @@ InstancedTessellation_release_cflags  += -O2
 InstancedTessellation_release_lflags    := $(InstancedTessellation_custom_lflags)
 InstancedTessellation_release_lflags    += $(addprefix -L, $(InstancedTessellation_release_lpaths))
 InstancedTessellation_release_lflags    += -Wl,--start-group $(addprefix -l, $(InstancedTessellation_release_libraries)) -Wl,--end-group
-InstancedTessellation_release_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+InstancedTessellation_release_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 InstancedTessellation_release_objsdir  := $(OBJS_DIR)/InstancedTessellation_release
 InstancedTessellation_release_obj      := 
 InstancedTessellation_release_cpp_o    = $(addprefix $(InstancedTessellation_release_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(InstancedTessellation_cppfiles)))))

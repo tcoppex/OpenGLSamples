@@ -47,7 +47,7 @@ FXAA_debug_libraries += NvAssetLoaderD
 FXAA_debug_libraries += NvGamepadD
 #FXAA_debug_libraries += NvGLUtilsD
 FXAA_debug_libraries += NvModelD
-FXAA_debug_libraries += NvUID NvGLUtilsD glfw3 
+FXAA_debug_libraries += NvUID NvGLUtilsD glfw 
 FXAA_debug_common_cflags	:= $(FXAA_custom_cflags)
 FXAA_debug_common_cflags    += -MMD
 FXAA_debug_common_cflags    += $(addprefix -D, $(FXAA_debug_defines))
@@ -65,7 +65,7 @@ FXAA_debug_cppflags  += -g
 FXAA_debug_lflags    := $(FXAA_custom_lflags)
 FXAA_debug_lflags    += $(addprefix -L, $(FXAA_debug_lpaths))
 FXAA_debug_lflags    += -Wl,--no-as-needed $(addprefix -l, $(FXAA_debug_libraries))
-FXAA_debug_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+FXAA_debug_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 FXAA_debug_lflags  += -m64
 FXAA_debug_lflags  += -m64
 FXAA_debug_objsdir  = $(OBJS_DIR)/FXAA_debug
@@ -155,7 +155,7 @@ FXAA_release_libraries += NvAssetLoader
 FXAA_release_libraries += NvGamepad
 #FXAA_release_libraries += NvGLUtils
 FXAA_release_libraries += NvModel
-FXAA_release_libraries += NvUI NvGLUtils glfw3 
+FXAA_release_libraries += NvUI NvGLUtils glfw 
 FXAA_release_common_cflags	:= $(FXAA_custom_cflags)
 FXAA_release_common_cflags    += -MMD
 FXAA_release_common_cflags    += $(addprefix -D, $(FXAA_release_defines))
@@ -173,7 +173,7 @@ FXAA_release_cppflags  += -O2
 FXAA_release_lflags    := $(FXAA_custom_lflags)
 FXAA_release_lflags    += $(addprefix -L, $(FXAA_release_lpaths))
 FXAA_release_lflags    += -Wl,--no-as-needed $(addprefix -l, $(FXAA_release_libraries))
-FXAA_release_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+FXAA_release_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 FXAA_release_lflags  += -m64
 FXAA_release_lflags  += -m64
 FXAA_release_objsdir  = $(OBJS_DIR)/FXAA_release

@@ -65,7 +65,7 @@ ComputeWaterSimulation_debug_cflags  += -g
 ComputeWaterSimulation_debug_lflags    := $(ComputeWaterSimulation_custom_lflags)
 ComputeWaterSimulation_debug_lflags    += $(addprefix -L, $(ComputeWaterSimulation_debug_lpaths))
 ComputeWaterSimulation_debug_lflags    += -Wl,--start-group $(addprefix -l, $(ComputeWaterSimulation_debug_libraries)) -Wl,--end-group
-ComputeWaterSimulation_debug_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+ComputeWaterSimulation_debug_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 ComputeWaterSimulation_debug_objsdir  := $(OBJS_DIR)/ComputeWaterSimulation_debug
 ComputeWaterSimulation_debug_obj      := 
 ComputeWaterSimulation_debug_cpp_o    = $(addprefix $(ComputeWaterSimulation_debug_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(ComputeWaterSimulation_cppfiles)))))
@@ -150,7 +150,7 @@ ComputeWaterSimulation_release_cflags  += -O2
 ComputeWaterSimulation_release_lflags    := $(ComputeWaterSimulation_custom_lflags)
 ComputeWaterSimulation_release_lflags    += $(addprefix -L, $(ComputeWaterSimulation_release_lpaths))
 ComputeWaterSimulation_release_lflags    += -Wl,--start-group $(addprefix -l, $(ComputeWaterSimulation_release_libraries)) -Wl,--end-group
-ComputeWaterSimulation_release_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+ComputeWaterSimulation_release_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 ComputeWaterSimulation_release_objsdir  := $(OBJS_DIR)/ComputeWaterSimulation_release
 ComputeWaterSimulation_release_obj      := 
 ComputeWaterSimulation_release_cpp_o    = $(addprefix $(ComputeWaterSimulation_release_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(ComputeWaterSimulation_cppfiles)))))

@@ -47,7 +47,7 @@ CascadedShadowMapping_debug_libraries += NvAssetLoaderD
 CascadedShadowMapping_debug_libraries += NvGamepadD
 #CascadedShadowMapping_debug_libraries += NvGLUtilsD
 CascadedShadowMapping_debug_libraries += NvModelD
-CascadedShadowMapping_debug_libraries += NvUID NvGLUtilsD glfw3 
+CascadedShadowMapping_debug_libraries += NvUID NvGLUtilsD glfw 
 CascadedShadowMapping_debug_common_cflags	:= $(CascadedShadowMapping_custom_cflags)
 CascadedShadowMapping_debug_common_cflags    += -MMD
 CascadedShadowMapping_debug_common_cflags    += $(addprefix -D, $(CascadedShadowMapping_debug_defines))
@@ -67,7 +67,7 @@ CascadedShadowMapping_debug_cppflags  += -g
 CascadedShadowMapping_debug_lflags    := $(CascadedShadowMapping_custom_lflags)
 CascadedShadowMapping_debug_lflags    += $(addprefix -L, $(CascadedShadowMapping_debug_lpaths))
 CascadedShadowMapping_debug_lflags    += -Wl,--no-as-needed $(addprefix -l, $(CascadedShadowMapping_debug_libraries))
-CascadedShadowMapping_debug_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+CascadedShadowMapping_debug_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 CascadedShadowMapping_debug_lflags  += -m32
 CascadedShadowMapping_debug_objsdir  = $(OBJS_DIR)/CascadedShadowMapping_debug
 CascadedShadowMapping_debug_cpp_o    = $(addprefix $(CascadedShadowMapping_debug_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(CascadedShadowMapping_cppfiles)))))
@@ -154,7 +154,7 @@ CascadedShadowMapping_release_libraries += NvAssetLoader
 CascadedShadowMapping_release_libraries += NvGamepad
 #CascadedShadowMapping_release_libraries += NvGLUtils
 CascadedShadowMapping_release_libraries += NvModel
-CascadedShadowMapping_release_libraries += NvUI NvGLUtils glfw3 
+CascadedShadowMapping_release_libraries += NvUI NvGLUtils glfw 
 CascadedShadowMapping_release_common_cflags	:= $(CascadedShadowMapping_custom_cflags)
 CascadedShadowMapping_release_common_cflags    += -MMD
 CascadedShadowMapping_release_common_cflags    += $(addprefix -D, $(CascadedShadowMapping_release_defines))
@@ -174,7 +174,7 @@ CascadedShadowMapping_release_cppflags  += -O2
 CascadedShadowMapping_release_lflags    := $(CascadedShadowMapping_custom_lflags)
 CascadedShadowMapping_release_lflags    += $(addprefix -L, $(CascadedShadowMapping_release_lpaths))
 CascadedShadowMapping_release_lflags    += -Wl,--no-as-needed $(addprefix -l, $(CascadedShadowMapping_release_libraries))
-CascadedShadowMapping_release_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+CascadedShadowMapping_release_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 CascadedShadowMapping_release_lflags  += -m32
 CascadedShadowMapping_release_objsdir  = $(OBJS_DIR)/CascadedShadowMapping_release
 CascadedShadowMapping_release_cpp_o    = $(addprefix $(CascadedShadowMapping_release_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(CascadedShadowMapping_cppfiles)))))

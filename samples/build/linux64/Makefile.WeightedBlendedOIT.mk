@@ -46,7 +46,7 @@ WeightedBlendedOIT_debug_libraries += NvAssetLoaderD
 WeightedBlendedOIT_debug_libraries += NvGamepadD
 #WeightedBlendedOIT_debug_libraries += NvGLUtilsD
 WeightedBlendedOIT_debug_libraries += NvModelD
-WeightedBlendedOIT_debug_libraries += NvUID NvGLUtilsD glfw3 
+WeightedBlendedOIT_debug_libraries += NvUID NvGLUtilsD glfw 
 WeightedBlendedOIT_debug_common_cflags	:= $(WeightedBlendedOIT_custom_cflags)
 WeightedBlendedOIT_debug_common_cflags    += -MMD
 WeightedBlendedOIT_debug_common_cflags    += $(addprefix -D, $(WeightedBlendedOIT_debug_defines))
@@ -64,7 +64,7 @@ WeightedBlendedOIT_debug_cppflags  += -g
 WeightedBlendedOIT_debug_lflags    := $(WeightedBlendedOIT_custom_lflags)
 WeightedBlendedOIT_debug_lflags    += $(addprefix -L, $(WeightedBlendedOIT_debug_lpaths))
 WeightedBlendedOIT_debug_lflags    += -Wl,--no-as-needed $(addprefix -l, $(WeightedBlendedOIT_debug_libraries))
-WeightedBlendedOIT_debug_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+WeightedBlendedOIT_debug_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 WeightedBlendedOIT_debug_lflags  += -m64
 WeightedBlendedOIT_debug_lflags  += -m64
 WeightedBlendedOIT_debug_objsdir  = $(OBJS_DIR)/WeightedBlendedOIT_debug
@@ -153,7 +153,7 @@ WeightedBlendedOIT_release_libraries += NvAssetLoader
 WeightedBlendedOIT_release_libraries += NvGamepad
 #WeightedBlendedOIT_release_libraries += NvGLUtils
 WeightedBlendedOIT_release_libraries += NvModel
-WeightedBlendedOIT_release_libraries += NvUI NvGLUtils glfw3 
+WeightedBlendedOIT_release_libraries += NvUI NvGLUtils glfw 
 WeightedBlendedOIT_release_common_cflags	:= $(WeightedBlendedOIT_custom_cflags)
 WeightedBlendedOIT_release_common_cflags    += -MMD
 WeightedBlendedOIT_release_common_cflags    += $(addprefix -D, $(WeightedBlendedOIT_release_defines))
@@ -171,7 +171,7 @@ WeightedBlendedOIT_release_cppflags  += -O2
 WeightedBlendedOIT_release_lflags    := $(WeightedBlendedOIT_custom_lflags)
 WeightedBlendedOIT_release_lflags    += $(addprefix -L, $(WeightedBlendedOIT_release_lpaths))
 WeightedBlendedOIT_release_lflags    += -Wl,--no-as-needed $(addprefix -l, $(WeightedBlendedOIT_release_libraries))
-WeightedBlendedOIT_release_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+WeightedBlendedOIT_release_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 WeightedBlendedOIT_release_lflags  += -m64
 WeightedBlendedOIT_release_lflags  += -m64
 WeightedBlendedOIT_release_objsdir  = $(OBJS_DIR)/WeightedBlendedOIT_release

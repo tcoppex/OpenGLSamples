@@ -47,7 +47,7 @@ BindlessApp_debug_libraries += NvAssetLoaderD
 BindlessApp_debug_libraries += NvGamepadD
 #BindlessApp_debug_libraries += NvGLUtilsD
 BindlessApp_debug_libraries += NvModelD
-BindlessApp_debug_libraries += NvUID NvGLUtilsD glfw3 
+BindlessApp_debug_libraries += NvUID NvGLUtilsD glfw 
 BindlessApp_debug_common_cflags	:= $(BindlessApp_custom_cflags)
 BindlessApp_debug_common_cflags    += -MMD
 BindlessApp_debug_common_cflags    += $(addprefix -D, $(BindlessApp_debug_defines))
@@ -65,7 +65,7 @@ BindlessApp_debug_cppflags  += -g
 BindlessApp_debug_lflags    := $(BindlessApp_custom_lflags)
 BindlessApp_debug_lflags    += $(addprefix -L, $(BindlessApp_debug_lpaths))
 BindlessApp_debug_lflags    += -Wl,--no-as-needed $(addprefix -l, $(BindlessApp_debug_libraries))
-BindlessApp_debug_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+BindlessApp_debug_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 BindlessApp_debug_lflags  += -m64
 BindlessApp_debug_lflags  += -m64
 BindlessApp_debug_objsdir  = $(OBJS_DIR)/BindlessApp_debug
@@ -154,7 +154,7 @@ BindlessApp_release_libraries += NvAssetLoader
 BindlessApp_release_libraries += NvGamepad
 #BindlessApp_release_libraries += NvGLUtils
 BindlessApp_release_libraries += NvModel
-BindlessApp_release_libraries += NvUI NvGLUtils glfw3 
+BindlessApp_release_libraries += NvUI NvGLUtils glfw 
 BindlessApp_release_common_cflags	:= $(BindlessApp_custom_cflags)
 BindlessApp_release_common_cflags    += -MMD
 BindlessApp_release_common_cflags    += $(addprefix -D, $(BindlessApp_release_defines))
@@ -172,7 +172,7 @@ BindlessApp_release_cppflags  += -O2
 BindlessApp_release_lflags    := $(BindlessApp_custom_lflags)
 BindlessApp_release_lflags    += $(addprefix -L, $(BindlessApp_release_lpaths))
 BindlessApp_release_lflags    += -Wl,--no-as-needed $(addprefix -l, $(BindlessApp_release_libraries))
-BindlessApp_release_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+BindlessApp_release_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 BindlessApp_release_lflags  += -m64
 BindlessApp_release_lflags  += -m64
 BindlessApp_release_objsdir  = $(OBJS_DIR)/BindlessApp_release

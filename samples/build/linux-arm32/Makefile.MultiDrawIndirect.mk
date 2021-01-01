@@ -57,7 +57,7 @@ MultiDrawIndirect_debug_cflags  += -g
 MultiDrawIndirect_debug_lflags    := $(MultiDrawIndirect_custom_lflags)
 MultiDrawIndirect_debug_lflags    += $(addprefix -L, $(MultiDrawIndirect_debug_lpaths))
 MultiDrawIndirect_debug_lflags    += -Wl,--start-group $(addprefix -l, $(MultiDrawIndirect_debug_libraries)) -Wl,--end-group
-MultiDrawIndirect_debug_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+MultiDrawIndirect_debug_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 MultiDrawIndirect_debug_objsdir  := $(OBJS_DIR)/MultiDrawIndirect_debug
 MultiDrawIndirect_debug_obj      := 
 MultiDrawIndirect_debug_cpp_o    = $(addprefix $(MultiDrawIndirect_debug_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(MultiDrawIndirect_cppfiles)))))
@@ -139,7 +139,7 @@ MultiDrawIndirect_release_cflags  += -O2
 MultiDrawIndirect_release_lflags    := $(MultiDrawIndirect_custom_lflags)
 MultiDrawIndirect_release_lflags    += $(addprefix -L, $(MultiDrawIndirect_release_lpaths))
 MultiDrawIndirect_release_lflags    += -Wl,--start-group $(addprefix -l, $(MultiDrawIndirect_release_libraries)) -Wl,--end-group
-MultiDrawIndirect_release_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+MultiDrawIndirect_release_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 MultiDrawIndirect_release_objsdir  := $(OBJS_DIR)/MultiDrawIndirect_release
 MultiDrawIndirect_release_obj      := 
 MultiDrawIndirect_release_cpp_o    = $(addprefix $(MultiDrawIndirect_release_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(MultiDrawIndirect_cppfiles)))))

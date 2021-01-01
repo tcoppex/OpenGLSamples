@@ -46,7 +46,7 @@ MotionBlurAdvanced_debug_libraries += NvAssetLoaderD
 MotionBlurAdvanced_debug_libraries += NvGamepadD
 #MotionBlurAdvanced_debug_libraries += NvGLUtilsD
 MotionBlurAdvanced_debug_libraries += NvModelD
-MotionBlurAdvanced_debug_libraries += NvUID NvGLUtilsD glfw3 
+MotionBlurAdvanced_debug_libraries += NvUID NvGLUtilsD glfw 
 MotionBlurAdvanced_debug_common_cflags	:= $(MotionBlurAdvanced_custom_cflags)
 MotionBlurAdvanced_debug_common_cflags    += -MMD
 MotionBlurAdvanced_debug_common_cflags    += $(addprefix -D, $(MotionBlurAdvanced_debug_defines))
@@ -64,7 +64,7 @@ MotionBlurAdvanced_debug_cppflags  += -g
 MotionBlurAdvanced_debug_lflags    := $(MotionBlurAdvanced_custom_lflags)
 MotionBlurAdvanced_debug_lflags    += $(addprefix -L, $(MotionBlurAdvanced_debug_lpaths))
 MotionBlurAdvanced_debug_lflags    += -Wl,--no-as-needed $(addprefix -l, $(MotionBlurAdvanced_debug_libraries))
-MotionBlurAdvanced_debug_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+MotionBlurAdvanced_debug_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 MotionBlurAdvanced_debug_lflags  += -m64
 MotionBlurAdvanced_debug_lflags  += -m64
 MotionBlurAdvanced_debug_objsdir  = $(OBJS_DIR)/MotionBlurAdvanced_debug
@@ -153,7 +153,7 @@ MotionBlurAdvanced_release_libraries += NvAssetLoader
 MotionBlurAdvanced_release_libraries += NvGamepad
 #MotionBlurAdvanced_release_libraries += NvGLUtils
 MotionBlurAdvanced_release_libraries += NvModel
-MotionBlurAdvanced_release_libraries += NvUI NvGLUtils glfw3 
+MotionBlurAdvanced_release_libraries += NvUI NvGLUtils glfw 
 MotionBlurAdvanced_release_common_cflags	:= $(MotionBlurAdvanced_custom_cflags)
 MotionBlurAdvanced_release_common_cflags    += -MMD
 MotionBlurAdvanced_release_common_cflags    += $(addprefix -D, $(MotionBlurAdvanced_release_defines))
@@ -171,7 +171,7 @@ MotionBlurAdvanced_release_cppflags  += -O2
 MotionBlurAdvanced_release_lflags    := $(MotionBlurAdvanced_custom_lflags)
 MotionBlurAdvanced_release_lflags    += $(addprefix -L, $(MotionBlurAdvanced_release_lpaths))
 MotionBlurAdvanced_release_lflags    += -Wl,--no-as-needed $(addprefix -l, $(MotionBlurAdvanced_release_libraries))
-MotionBlurAdvanced_release_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+MotionBlurAdvanced_release_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 MotionBlurAdvanced_release_lflags  += -m64
 MotionBlurAdvanced_release_lflags  += -m64
 MotionBlurAdvanced_release_objsdir  = $(OBJS_DIR)/MotionBlurAdvanced_release

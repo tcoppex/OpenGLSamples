@@ -59,7 +59,7 @@ Bloom_debug_cflags  += -g
 Bloom_debug_lflags    := $(Bloom_custom_lflags)
 Bloom_debug_lflags    += $(addprefix -L, $(Bloom_debug_lpaths))
 Bloom_debug_lflags    += -Wl,--start-group $(addprefix -l, $(Bloom_debug_libraries)) -Wl,--end-group
-Bloom_debug_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+Bloom_debug_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 Bloom_debug_objsdir  := $(OBJS_DIR)/Bloom_debug
 Bloom_debug_obj      := 
 Bloom_debug_cpp_o    = $(addprefix $(Bloom_debug_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(Bloom_cppfiles)))))
@@ -143,7 +143,7 @@ Bloom_release_cflags  += -O2
 Bloom_release_lflags    := $(Bloom_custom_lflags)
 Bloom_release_lflags    += $(addprefix -L, $(Bloom_release_lpaths))
 Bloom_release_lflags    += -Wl,--start-group $(addprefix -l, $(Bloom_release_libraries)) -Wl,--end-group
-Bloom_release_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+Bloom_release_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 Bloom_release_objsdir  := $(OBJS_DIR)/Bloom_release
 Bloom_release_obj      := 
 Bloom_release_cpp_o    = $(addprefix $(Bloom_release_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(Bloom_cppfiles)))))

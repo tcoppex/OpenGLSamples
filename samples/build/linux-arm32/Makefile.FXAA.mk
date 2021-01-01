@@ -58,7 +58,7 @@ FXAA_debug_cflags  += -g
 FXAA_debug_lflags    := $(FXAA_custom_lflags)
 FXAA_debug_lflags    += $(addprefix -L, $(FXAA_debug_lpaths))
 FXAA_debug_lflags    += -Wl,--start-group $(addprefix -l, $(FXAA_debug_libraries)) -Wl,--end-group
-FXAA_debug_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+FXAA_debug_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 FXAA_debug_objsdir  := $(OBJS_DIR)/FXAA_debug
 FXAA_debug_obj      := 
 FXAA_debug_cpp_o    = $(addprefix $(FXAA_debug_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(FXAA_cppfiles)))))
@@ -141,7 +141,7 @@ FXAA_release_cflags  += -O2
 FXAA_release_lflags    := $(FXAA_custom_lflags)
 FXAA_release_lflags    += $(addprefix -L, $(FXAA_release_lpaths))
 FXAA_release_lflags    += -Wl,--start-group $(addprefix -l, $(FXAA_release_libraries)) -Wl,--end-group
-FXAA_release_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+FXAA_release_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 FXAA_release_objsdir  := $(OBJS_DIR)/FXAA_release
 FXAA_release_obj      := 
 FXAA_release_cpp_o    = $(addprefix $(FXAA_release_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(FXAA_cppfiles)))))

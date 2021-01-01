@@ -48,7 +48,7 @@ TerrainTessellation_debug_libraries += NvAssetLoaderD
 TerrainTessellation_debug_libraries += NvGamepadD
 #TerrainTessellation_debug_libraries += NvGLUtilsD
 TerrainTessellation_debug_libraries += NvModelD
-TerrainTessellation_debug_libraries += NvUID NvGLUtilsD glfw3 
+TerrainTessellation_debug_libraries += NvUID NvGLUtilsD glfw 
 TerrainTessellation_debug_common_cflags	:= $(TerrainTessellation_custom_cflags)
 TerrainTessellation_debug_common_cflags    += -MMD
 TerrainTessellation_debug_common_cflags    += $(addprefix -D, $(TerrainTessellation_debug_defines))
@@ -66,7 +66,7 @@ TerrainTessellation_debug_cppflags  += -g
 TerrainTessellation_debug_lflags    := $(TerrainTessellation_custom_lflags)
 TerrainTessellation_debug_lflags    += $(addprefix -L, $(TerrainTessellation_debug_lpaths))
 TerrainTessellation_debug_lflags    += -Wl,--no-as-needed $(addprefix -l, $(TerrainTessellation_debug_libraries))
-TerrainTessellation_debug_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+TerrainTessellation_debug_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 TerrainTessellation_debug_lflags  += -m64
 TerrainTessellation_debug_lflags  += -m64
 TerrainTessellation_debug_objsdir  = $(OBJS_DIR)/TerrainTessellation_debug
@@ -156,7 +156,7 @@ TerrainTessellation_release_libraries += NvAssetLoader
 TerrainTessellation_release_libraries += NvGamepad
 #TerrainTessellation_release_libraries += NvGLUtils
 TerrainTessellation_release_libraries += NvModel
-TerrainTessellation_release_libraries += NvUI NvGLUtils glfw3 
+TerrainTessellation_release_libraries += NvUI NvGLUtils glfw 
 TerrainTessellation_release_common_cflags	:= $(TerrainTessellation_custom_cflags)
 TerrainTessellation_release_common_cflags    += -MMD
 TerrainTessellation_release_common_cflags    += $(addprefix -D, $(TerrainTessellation_release_defines))
@@ -174,7 +174,7 @@ TerrainTessellation_release_cppflags  += -O2
 TerrainTessellation_release_lflags    := $(TerrainTessellation_custom_lflags)
 TerrainTessellation_release_lflags    += $(addprefix -L, $(TerrainTessellation_release_lpaths))
 TerrainTessellation_release_lflags    += -Wl,--no-as-needed $(addprefix -l, $(TerrainTessellation_release_libraries))
-TerrainTessellation_release_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+TerrainTessellation_release_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 TerrainTessellation_release_lflags  += -m64
 TerrainTessellation_release_lflags  += -m64
 TerrainTessellation_release_objsdir  = $(OBJS_DIR)/TerrainTessellation_release

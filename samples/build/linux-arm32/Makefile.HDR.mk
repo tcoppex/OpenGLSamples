@@ -64,7 +64,7 @@ HDR_debug_cflags  += -g
 HDR_debug_lflags    := $(HDR_custom_lflags)
 HDR_debug_lflags    += $(addprefix -L, $(HDR_debug_lpaths))
 HDR_debug_lflags    += -Wl,--start-group $(addprefix -l, $(HDR_debug_libraries)) -Wl,--end-group
-HDR_debug_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+HDR_debug_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 HDR_debug_objsdir  := $(OBJS_DIR)/HDR_debug
 HDR_debug_obj      := 
 HDR_debug_cpp_o    = $(addprefix $(HDR_debug_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(HDR_cppfiles)))))
@@ -146,7 +146,7 @@ HDR_release_cflags  += -O2
 HDR_release_lflags    := $(HDR_custom_lflags)
 HDR_release_lflags    += $(addprefix -L, $(HDR_release_lpaths))
 HDR_release_lflags    += -Wl,--start-group $(addprefix -l, $(HDR_release_libraries)) -Wl,--end-group
-HDR_release_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+HDR_release_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 HDR_release_objsdir  := $(OBJS_DIR)/HDR_release
 HDR_release_obj      := 
 HDR_release_cpp_o    = $(addprefix $(HDR_release_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(HDR_cppfiles)))))

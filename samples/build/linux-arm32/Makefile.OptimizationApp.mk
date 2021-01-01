@@ -65,7 +65,7 @@ OptimizationApp_debug_cflags  += -g
 OptimizationApp_debug_lflags    := $(OptimizationApp_custom_lflags)
 OptimizationApp_debug_lflags    += $(addprefix -L, $(OptimizationApp_debug_lpaths))
 OptimizationApp_debug_lflags    += -Wl,--start-group $(addprefix -l, $(OptimizationApp_debug_libraries)) -Wl,--end-group
-OptimizationApp_debug_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+OptimizationApp_debug_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 OptimizationApp_debug_objsdir  := $(OBJS_DIR)/OptimizationApp_debug
 OptimizationApp_debug_obj      := 
 OptimizationApp_debug_cpp_o    = $(addprefix $(OptimizationApp_debug_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(OptimizationApp_cppfiles)))))
@@ -147,7 +147,7 @@ OptimizationApp_release_cflags  += -O2
 OptimizationApp_release_lflags    := $(OptimizationApp_custom_lflags)
 OptimizationApp_release_lflags    += $(addprefix -L, $(OptimizationApp_release_lpaths))
 OptimizationApp_release_lflags    += -Wl,--start-group $(addprefix -l, $(OptimizationApp_release_libraries)) -Wl,--end-group
-OptimizationApp_release_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+OptimizationApp_release_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 OptimizationApp_release_objsdir  := $(OBJS_DIR)/OptimizationApp_release
 OptimizationApp_release_obj      := 
 OptimizationApp_release_cpp_o    = $(addprefix $(OptimizationApp_release_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(OptimizationApp_cppfiles)))))

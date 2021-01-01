@@ -47,7 +47,7 @@ ComputeBasicGLSL_debug_libraries += NvAssetLoaderD
 ComputeBasicGLSL_debug_libraries += NvGamepadD
 #ComputeBasicGLSL_debug_libraries += NvGLUtilsD
 ComputeBasicGLSL_debug_libraries += NvModelD
-ComputeBasicGLSL_debug_libraries += NvUID NvGLUtilsD glfw3 
+ComputeBasicGLSL_debug_libraries += NvUID NvGLUtilsD glfw 
 ComputeBasicGLSL_debug_common_cflags	:= $(ComputeBasicGLSL_custom_cflags)
 ComputeBasicGLSL_debug_common_cflags    += -MMD
 ComputeBasicGLSL_debug_common_cflags    += $(addprefix -D, $(ComputeBasicGLSL_debug_defines))
@@ -65,7 +65,7 @@ ComputeBasicGLSL_debug_cppflags  += -g
 ComputeBasicGLSL_debug_lflags    := $(ComputeBasicGLSL_custom_lflags)
 ComputeBasicGLSL_debug_lflags    += $(addprefix -L, $(ComputeBasicGLSL_debug_lpaths))
 ComputeBasicGLSL_debug_lflags    += -Wl,--no-as-needed $(addprefix -l, $(ComputeBasicGLSL_debug_libraries))
-ComputeBasicGLSL_debug_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+ComputeBasicGLSL_debug_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 ComputeBasicGLSL_debug_lflags  += -m64
 ComputeBasicGLSL_debug_lflags  += -m64
 ComputeBasicGLSL_debug_objsdir  = $(OBJS_DIR)/ComputeBasicGLSL_debug
@@ -155,7 +155,7 @@ ComputeBasicGLSL_release_libraries += NvAssetLoader
 ComputeBasicGLSL_release_libraries += NvGamepad
 #ComputeBasicGLSL_release_libraries += NvGLUtils
 ComputeBasicGLSL_release_libraries += NvModel
-ComputeBasicGLSL_release_libraries += NvUI NvGLUtils glfw3 
+ComputeBasicGLSL_release_libraries += NvUI NvGLUtils glfw 
 ComputeBasicGLSL_release_common_cflags	:= $(ComputeBasicGLSL_custom_cflags)
 ComputeBasicGLSL_release_common_cflags    += -MMD
 ComputeBasicGLSL_release_common_cflags    += $(addprefix -D, $(ComputeBasicGLSL_release_defines))
@@ -173,7 +173,7 @@ ComputeBasicGLSL_release_cppflags  += -O2
 ComputeBasicGLSL_release_lflags    := $(ComputeBasicGLSL_custom_lflags)
 ComputeBasicGLSL_release_lflags    += $(addprefix -L, $(ComputeBasicGLSL_release_lpaths))
 ComputeBasicGLSL_release_lflags    += -Wl,--no-as-needed $(addprefix -l, $(ComputeBasicGLSL_release_libraries))
-ComputeBasicGLSL_release_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+ComputeBasicGLSL_release_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 ComputeBasicGLSL_release_lflags  += -m64
 ComputeBasicGLSL_release_lflags  += -m64
 ComputeBasicGLSL_release_objsdir  = $(OBJS_DIR)/ComputeBasicGLSL_release

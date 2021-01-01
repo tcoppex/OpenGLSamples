@@ -61,7 +61,7 @@ FeedbackParticlesApp_debug_cflags  += -g
 FeedbackParticlesApp_debug_lflags    := $(FeedbackParticlesApp_custom_lflags)
 FeedbackParticlesApp_debug_lflags    += $(addprefix -L, $(FeedbackParticlesApp_debug_lpaths))
 FeedbackParticlesApp_debug_lflags    += -Wl,--start-group $(addprefix -l, $(FeedbackParticlesApp_debug_libraries)) -Wl,--end-group
-FeedbackParticlesApp_debug_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+FeedbackParticlesApp_debug_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 FeedbackParticlesApp_debug_objsdir  := $(OBJS_DIR)/FeedbackParticlesApp_debug
 FeedbackParticlesApp_debug_obj      := 
 FeedbackParticlesApp_debug_cpp_o    = $(addprefix $(FeedbackParticlesApp_debug_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(FeedbackParticlesApp_cppfiles)))))
@@ -143,7 +143,7 @@ FeedbackParticlesApp_release_cflags  += -O2
 FeedbackParticlesApp_release_lflags    := $(FeedbackParticlesApp_custom_lflags)
 FeedbackParticlesApp_release_lflags    += $(addprefix -L, $(FeedbackParticlesApp_release_lpaths))
 FeedbackParticlesApp_release_lflags    += -Wl,--start-group $(addprefix -l, $(FeedbackParticlesApp_release_libraries)) -Wl,--end-group
-FeedbackParticlesApp_release_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+FeedbackParticlesApp_release_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 FeedbackParticlesApp_release_objsdir  := $(OBJS_DIR)/FeedbackParticlesApp_release
 FeedbackParticlesApp_release_obj      := 
 FeedbackParticlesApp_release_cpp_o    = $(addprefix $(FeedbackParticlesApp_release_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(FeedbackParticlesApp_cppfiles)))))

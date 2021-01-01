@@ -53,7 +53,7 @@ HDR_debug_libraries += NvAssetLoaderD
 HDR_debug_libraries += NvGamepadD
 #HDR_debug_libraries += NvGLUtilsD
 HDR_debug_libraries += NvModelD
-HDR_debug_libraries += NvUID NvGLUtilsD glfw3 
+HDR_debug_libraries += NvUID NvGLUtilsD glfw 
 HDR_debug_common_cflags	:= $(HDR_custom_cflags)
 HDR_debug_common_cflags    += -MMD
 HDR_debug_common_cflags    += $(addprefix -D, $(HDR_debug_defines))
@@ -71,7 +71,7 @@ HDR_debug_cppflags  += -g
 HDR_debug_lflags    := $(HDR_custom_lflags)
 HDR_debug_lflags    += $(addprefix -L, $(HDR_debug_lpaths))
 HDR_debug_lflags    += -Wl,--no-as-needed $(addprefix -l, $(HDR_debug_libraries))
-HDR_debug_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+HDR_debug_lflags  += -fPIC -Wl,--unresolved-symbols=ignore-in-shared-libs
 HDR_debug_lflags  += -m64
 HDR_debug_lflags  += -m64
 HDR_debug_objsdir  = $(OBJS_DIR)/HDR_debug
@@ -160,7 +160,7 @@ HDR_release_libraries += NvAssetLoader
 HDR_release_libraries += NvGamepad
 #HDR_release_libraries += NvGLUtils
 HDR_release_libraries += NvModel
-HDR_release_libraries += NvUI NvGLUtils glfw3 
+HDR_release_libraries += glfw NvUI NvGLUtils 
 HDR_release_common_cflags	:= $(HDR_custom_cflags)
 HDR_release_common_cflags    += -MMD
 HDR_release_common_cflags    += $(addprefix -D, $(HDR_release_defines))

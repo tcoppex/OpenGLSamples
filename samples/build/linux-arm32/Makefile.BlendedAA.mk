@@ -57,7 +57,7 @@ BlendedAA_debug_cflags  += -g
 BlendedAA_debug_lflags    := $(BlendedAA_custom_lflags)
 BlendedAA_debug_lflags    += $(addprefix -L, $(BlendedAA_debug_lpaths))
 BlendedAA_debug_lflags    += -Wl,--start-group $(addprefix -l, $(BlendedAA_debug_libraries)) -Wl,--end-group
-BlendedAA_debug_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+BlendedAA_debug_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 BlendedAA_debug_objsdir  := $(OBJS_DIR)/BlendedAA_debug
 BlendedAA_debug_obj      := 
 BlendedAA_debug_cpp_o    = $(addprefix $(BlendedAA_debug_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(BlendedAA_cppfiles)))))
@@ -139,7 +139,7 @@ BlendedAA_release_cflags  += -O2
 BlendedAA_release_lflags    := $(BlendedAA_custom_lflags)
 BlendedAA_release_lflags    += $(addprefix -L, $(BlendedAA_release_lpaths))
 BlendedAA_release_lflags    += -Wl,--start-group $(addprefix -l, $(BlendedAA_release_libraries)) -Wl,--end-group
-BlendedAA_release_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+BlendedAA_release_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 BlendedAA_release_objsdir  := $(OBJS_DIR)/BlendedAA_release
 BlendedAA_release_obj      := 
 BlendedAA_release_cpp_o    = $(addprefix $(BlendedAA_release_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(BlendedAA_cppfiles)))))

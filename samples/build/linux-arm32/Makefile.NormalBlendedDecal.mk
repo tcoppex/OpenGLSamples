@@ -57,7 +57,7 @@ NormalBlendedDecal_debug_cflags  += -g
 NormalBlendedDecal_debug_lflags    := $(NormalBlendedDecal_custom_lflags)
 NormalBlendedDecal_debug_lflags    += $(addprefix -L, $(NormalBlendedDecal_debug_lpaths))
 NormalBlendedDecal_debug_lflags    += -Wl,--start-group $(addprefix -l, $(NormalBlendedDecal_debug_libraries)) -Wl,--end-group
-NormalBlendedDecal_debug_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+NormalBlendedDecal_debug_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 NormalBlendedDecal_debug_objsdir  := $(OBJS_DIR)/NormalBlendedDecal_debug
 NormalBlendedDecal_debug_obj      := 
 NormalBlendedDecal_debug_cpp_o    = $(addprefix $(NormalBlendedDecal_debug_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(NormalBlendedDecal_cppfiles)))))
@@ -139,7 +139,7 @@ NormalBlendedDecal_release_cflags  += -O2
 NormalBlendedDecal_release_lflags    := $(NormalBlendedDecal_custom_lflags)
 NormalBlendedDecal_release_lflags    += $(addprefix -L, $(NormalBlendedDecal_release_lpaths))
 NormalBlendedDecal_release_lflags    += -Wl,--start-group $(addprefix -l, $(NormalBlendedDecal_release_libraries)) -Wl,--end-group
-NormalBlendedDecal_release_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+NormalBlendedDecal_release_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 NormalBlendedDecal_release_objsdir  := $(OBJS_DIR)/NormalBlendedDecal_release
 NormalBlendedDecal_release_obj      := 
 NormalBlendedDecal_release_cpp_o    = $(addprefix $(NormalBlendedDecal_release_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(NormalBlendedDecal_cppfiles)))))

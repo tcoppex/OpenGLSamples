@@ -57,7 +57,7 @@ InstancingApp_debug_cflags  += -g
 InstancingApp_debug_lflags    := $(InstancingApp_custom_lflags)
 InstancingApp_debug_lflags    += $(addprefix -L, $(InstancingApp_debug_lpaths))
 InstancingApp_debug_lflags    += -Wl,--start-group $(addprefix -l, $(InstancingApp_debug_libraries)) -Wl,--end-group
-InstancingApp_debug_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+InstancingApp_debug_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 InstancingApp_debug_objsdir  := $(OBJS_DIR)/InstancingApp_debug
 InstancingApp_debug_obj      := 
 InstancingApp_debug_cpp_o    = $(addprefix $(InstancingApp_debug_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(InstancingApp_cppfiles)))))
@@ -139,7 +139,7 @@ InstancingApp_release_cflags  += -O2
 InstancingApp_release_lflags    := $(InstancingApp_custom_lflags)
 InstancingApp_release_lflags    += $(addprefix -L, $(InstancingApp_release_lpaths))
 InstancingApp_release_lflags    += -Wl,--start-group $(addprefix -l, $(InstancingApp_release_libraries)) -Wl,--end-group
-InstancingApp_release_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+InstancingApp_release_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 InstancingApp_release_objsdir  := $(OBJS_DIR)/InstancingApp_release
 InstancingApp_release_obj      := 
 InstancingApp_release_cpp_o    = $(addprefix $(InstancingApp_release_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(InstancingApp_cppfiles)))))

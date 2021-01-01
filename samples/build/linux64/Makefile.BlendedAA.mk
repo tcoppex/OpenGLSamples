@@ -46,7 +46,7 @@ BlendedAA_debug_libraries += NvAssetLoaderD
 BlendedAA_debug_libraries += NvGamepadD
 #BlendedAA_debug_libraries += NvGLUtilsD
 BlendedAA_debug_libraries += NvModelD
-BlendedAA_debug_libraries += NvUID NvGLUtilsD glfw3 
+BlendedAA_debug_libraries += NvUID NvGLUtilsD glfw 
 BlendedAA_debug_common_cflags	:= $(BlendedAA_custom_cflags)
 BlendedAA_debug_common_cflags    += -MMD
 BlendedAA_debug_common_cflags    += $(addprefix -D, $(BlendedAA_debug_defines))
@@ -64,7 +64,7 @@ BlendedAA_debug_cppflags  += -g
 BlendedAA_debug_lflags    := $(BlendedAA_custom_lflags)
 BlendedAA_debug_lflags    += $(addprefix -L, $(BlendedAA_debug_lpaths))
 BlendedAA_debug_lflags    += -Wl,--no-as-needed $(addprefix -l, $(BlendedAA_debug_libraries))
-BlendedAA_debug_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+BlendedAA_debug_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 BlendedAA_debug_lflags  += -m64
 BlendedAA_debug_lflags  += -m64
 BlendedAA_debug_objsdir  = $(OBJS_DIR)/BlendedAA_debug
@@ -153,7 +153,7 @@ BlendedAA_release_libraries += NvAssetLoader
 BlendedAA_release_libraries += NvGamepad
 #BlendedAA_release_libraries += NvGLUtils
 BlendedAA_release_libraries += NvModel
-BlendedAA_release_libraries += NvUI NvGLUtils glfw3 
+BlendedAA_release_libraries += NvUI NvGLUtils glfw 
 BlendedAA_release_common_cflags	:= $(BlendedAA_custom_cflags)
 BlendedAA_release_common_cflags    += -MMD
 BlendedAA_release_common_cflags    += $(addprefix -D, $(BlendedAA_release_defines))
@@ -171,7 +171,7 @@ BlendedAA_release_cppflags  += -O2
 BlendedAA_release_lflags    := $(BlendedAA_custom_lflags)
 BlendedAA_release_lflags    += $(addprefix -L, $(BlendedAA_release_lpaths))
 BlendedAA_release_lflags    += -Wl,--no-as-needed $(addprefix -l, $(BlendedAA_release_libraries))
-BlendedAA_release_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+BlendedAA_release_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 BlendedAA_release_lflags  += -m64
 BlendedAA_release_lflags  += -m64
 BlendedAA_release_objsdir  = $(OBJS_DIR)/BlendedAA_release

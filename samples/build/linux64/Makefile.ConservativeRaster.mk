@@ -45,7 +45,7 @@ ConservativeRaster_debug_libraries += NvAssetLoaderD
 ConservativeRaster_debug_libraries += NvGamepadD
 #ConservativeRaster_debug_libraries += NvGLUtilsD
 ConservativeRaster_debug_libraries += NvModelD
-ConservativeRaster_debug_libraries += NvUID NvGLUtilsD glfw3 
+ConservativeRaster_debug_libraries += NvUID NvGLUtilsD glfw 
 ConservativeRaster_debug_libraries += GLEW
 ConservativeRaster_debug_common_cflags	:= $(ConservativeRaster_custom_cflags)
 ConservativeRaster_debug_common_cflags    += -MMD
@@ -64,7 +64,7 @@ ConservativeRaster_debug_cppflags  += -g
 ConservativeRaster_debug_lflags    := $(ConservativeRaster_custom_lflags)
 ConservativeRaster_debug_lflags    += $(addprefix -L, $(ConservativeRaster_debug_lpaths))
 ConservativeRaster_debug_lflags    += -Wl,--no-as-needed $(addprefix -l, $(ConservativeRaster_debug_libraries))
-ConservativeRaster_debug_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+ConservativeRaster_debug_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 ConservativeRaster_debug_lflags  += -m64
 ConservativeRaster_debug_lflags  += -m64
 ConservativeRaster_debug_objsdir  = $(OBJS_DIR)/ConservativeRaster_debug
@@ -152,7 +152,7 @@ ConservativeRaster_release_libraries += NvAssetLoader
 ConservativeRaster_release_libraries += NvGamepad
 #ConservativeRaster_release_libraries += NvGLUtils
 ConservativeRaster_release_libraries += NvModel
-ConservativeRaster_release_libraries += NvUI NvGLUtils glfw3 
+ConservativeRaster_release_libraries += NvUI NvGLUtils glfw 
 ConservativeRaster_release_libraries += GLEW
 ConservativeRaster_release_common_cflags	:= $(ConservativeRaster_custom_cflags)
 ConservativeRaster_release_common_cflags    += -MMD
@@ -171,7 +171,7 @@ ConservativeRaster_release_cppflags  += -O2
 ConservativeRaster_release_lflags    := $(ConservativeRaster_custom_lflags)
 ConservativeRaster_release_lflags    += $(addprefix -L, $(ConservativeRaster_release_lpaths))
 ConservativeRaster_release_lflags    += -Wl,--no-as-needed $(addprefix -l, $(ConservativeRaster_release_libraries))
-ConservativeRaster_release_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+ConservativeRaster_release_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 ConservativeRaster_release_lflags  += -m64
 ConservativeRaster_release_lflags  += -m64
 ConservativeRaster_release_objsdir  = $(OBJS_DIR)/ConservativeRaster_release

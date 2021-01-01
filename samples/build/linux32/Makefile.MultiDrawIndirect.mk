@@ -45,7 +45,7 @@ MultiDrawIndirect_debug_libraries += NvAssetLoaderD
 MultiDrawIndirect_debug_libraries += NvGamepadD
 #MultiDrawIndirect_debug_libraries += NvGLUtilsD
 MultiDrawIndirect_debug_libraries += NvModelD
-MultiDrawIndirect_debug_libraries += NvUID NvGLUtilsD glfw3 
+MultiDrawIndirect_debug_libraries += NvUID NvGLUtilsD glfw 
 MultiDrawIndirect_debug_common_cflags	:= $(MultiDrawIndirect_custom_cflags)
 MultiDrawIndirect_debug_common_cflags    += -MMD
 MultiDrawIndirect_debug_common_cflags    += $(addprefix -D, $(MultiDrawIndirect_debug_defines))
@@ -63,7 +63,7 @@ MultiDrawIndirect_debug_cppflags  += -g
 MultiDrawIndirect_debug_lflags    := $(MultiDrawIndirect_custom_lflags)
 MultiDrawIndirect_debug_lflags    += $(addprefix -L, $(MultiDrawIndirect_debug_lpaths))
 MultiDrawIndirect_debug_lflags    += -Wl,--no-as-needed $(addprefix -l, $(MultiDrawIndirect_debug_libraries))
-MultiDrawIndirect_debug_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+MultiDrawIndirect_debug_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 MultiDrawIndirect_debug_lflags  += -m32
 MultiDrawIndirect_debug_objsdir  = $(OBJS_DIR)/MultiDrawIndirect_debug
 MultiDrawIndirect_debug_cpp_o    = $(addprefix $(MultiDrawIndirect_debug_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(MultiDrawIndirect_cppfiles)))))
@@ -150,7 +150,7 @@ MultiDrawIndirect_release_libraries += NvAssetLoader
 MultiDrawIndirect_release_libraries += NvGamepad
 #MultiDrawIndirect_release_libraries += NvGLUtils
 MultiDrawIndirect_release_libraries += NvModel
-MultiDrawIndirect_release_libraries += NvUI NvGLUtils glfw3 
+MultiDrawIndirect_release_libraries += NvUI NvGLUtils glfw 
 MultiDrawIndirect_release_common_cflags	:= $(MultiDrawIndirect_custom_cflags)
 MultiDrawIndirect_release_common_cflags    += -MMD
 MultiDrawIndirect_release_common_cflags    += $(addprefix -D, $(MultiDrawIndirect_release_defines))
@@ -168,7 +168,7 @@ MultiDrawIndirect_release_cppflags  += -O2
 MultiDrawIndirect_release_lflags    := $(MultiDrawIndirect_custom_lflags)
 MultiDrawIndirect_release_lflags    += $(addprefix -L, $(MultiDrawIndirect_release_lpaths))
 MultiDrawIndirect_release_lflags    += -Wl,--no-as-needed $(addprefix -l, $(MultiDrawIndirect_release_libraries))
-MultiDrawIndirect_release_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+MultiDrawIndirect_release_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 MultiDrawIndirect_release_lflags  += -m32
 MultiDrawIndirect_release_objsdir  = $(OBJS_DIR)/MultiDrawIndirect_release
 MultiDrawIndirect_release_cpp_o    = $(addprefix $(MultiDrawIndirect_release_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(MultiDrawIndirect_cppfiles)))))

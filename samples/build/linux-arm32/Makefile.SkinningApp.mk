@@ -58,7 +58,7 @@ SkinningApp_debug_cflags  += -g
 SkinningApp_debug_lflags    := $(SkinningApp_custom_lflags)
 SkinningApp_debug_lflags    += $(addprefix -L, $(SkinningApp_debug_lpaths))
 SkinningApp_debug_lflags    += -Wl,--start-group $(addprefix -l, $(SkinningApp_debug_libraries)) -Wl,--end-group
-SkinningApp_debug_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+SkinningApp_debug_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 SkinningApp_debug_objsdir  := $(OBJS_DIR)/SkinningApp_debug
 SkinningApp_debug_obj      := 
 SkinningApp_debug_cpp_o    = $(addprefix $(SkinningApp_debug_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(SkinningApp_cppfiles)))))
@@ -140,7 +140,7 @@ SkinningApp_release_cflags  += -O2
 SkinningApp_release_lflags    := $(SkinningApp_custom_lflags)
 SkinningApp_release_lflags    += $(addprefix -L, $(SkinningApp_release_lpaths))
 SkinningApp_release_lflags    += -Wl,--start-group $(addprefix -l, $(SkinningApp_release_libraries)) -Wl,--end-group
-SkinningApp_release_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+SkinningApp_release_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 SkinningApp_release_objsdir  := $(OBJS_DIR)/SkinningApp_release
 SkinningApp_release_obj      := 
 SkinningApp_release_cpp_o    = $(addprefix $(SkinningApp_release_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(SkinningApp_cppfiles)))))

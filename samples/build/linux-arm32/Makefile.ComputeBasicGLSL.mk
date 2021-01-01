@@ -58,7 +58,7 @@ ComputeBasicGLSL_debug_cflags  += -g
 ComputeBasicGLSL_debug_lflags    := $(ComputeBasicGLSL_custom_lflags)
 ComputeBasicGLSL_debug_lflags    += $(addprefix -L, $(ComputeBasicGLSL_debug_lpaths))
 ComputeBasicGLSL_debug_lflags    += -Wl,--start-group $(addprefix -l, $(ComputeBasicGLSL_debug_libraries)) -Wl,--end-group
-ComputeBasicGLSL_debug_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+ComputeBasicGLSL_debug_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 ComputeBasicGLSL_debug_objsdir  := $(OBJS_DIR)/ComputeBasicGLSL_debug
 ComputeBasicGLSL_debug_obj      := 
 ComputeBasicGLSL_debug_cpp_o    = $(addprefix $(ComputeBasicGLSL_debug_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(ComputeBasicGLSL_cppfiles)))))
@@ -141,7 +141,7 @@ ComputeBasicGLSL_release_cflags  += -O2
 ComputeBasicGLSL_release_lflags    := $(ComputeBasicGLSL_custom_lflags)
 ComputeBasicGLSL_release_lflags    += $(addprefix -L, $(ComputeBasicGLSL_release_lpaths))
 ComputeBasicGLSL_release_lflags    += -Wl,--start-group $(addprefix -l, $(ComputeBasicGLSL_release_libraries)) -Wl,--end-group
-ComputeBasicGLSL_release_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+ComputeBasicGLSL_release_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 ComputeBasicGLSL_release_objsdir  := $(OBJS_DIR)/ComputeBasicGLSL_release
 ComputeBasicGLSL_release_obj      := 
 ComputeBasicGLSL_release_cpp_o    = $(addprefix $(ComputeBasicGLSL_release_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(ComputeBasicGLSL_cppfiles)))))

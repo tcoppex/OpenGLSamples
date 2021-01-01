@@ -57,7 +57,7 @@ WeightedBlendedOIT_debug_cflags  += -g
 WeightedBlendedOIT_debug_lflags    := $(WeightedBlendedOIT_custom_lflags)
 WeightedBlendedOIT_debug_lflags    += $(addprefix -L, $(WeightedBlendedOIT_debug_lpaths))
 WeightedBlendedOIT_debug_lflags    += -Wl,--start-group $(addprefix -l, $(WeightedBlendedOIT_debug_libraries)) -Wl,--end-group
-WeightedBlendedOIT_debug_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+WeightedBlendedOIT_debug_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 WeightedBlendedOIT_debug_objsdir  := $(OBJS_DIR)/WeightedBlendedOIT_debug
 WeightedBlendedOIT_debug_obj      := 
 WeightedBlendedOIT_debug_cpp_o    = $(addprefix $(WeightedBlendedOIT_debug_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(WeightedBlendedOIT_cppfiles)))))
@@ -139,7 +139,7 @@ WeightedBlendedOIT_release_cflags  += -O2
 WeightedBlendedOIT_release_lflags    := $(WeightedBlendedOIT_custom_lflags)
 WeightedBlendedOIT_release_lflags    += $(addprefix -L, $(WeightedBlendedOIT_release_lpaths))
 WeightedBlendedOIT_release_lflags    += -Wl,--start-group $(addprefix -l, $(WeightedBlendedOIT_release_libraries)) -Wl,--end-group
-WeightedBlendedOIT_release_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+WeightedBlendedOIT_release_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 WeightedBlendedOIT_release_objsdir  := $(OBJS_DIR)/WeightedBlendedOIT_release
 WeightedBlendedOIT_release_obj      := 
 WeightedBlendedOIT_release_cpp_o    = $(addprefix $(WeightedBlendedOIT_release_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(WeightedBlendedOIT_cppfiles)))))

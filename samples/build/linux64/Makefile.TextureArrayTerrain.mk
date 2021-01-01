@@ -50,7 +50,7 @@ TextureArrayTerrain_debug_libraries += NvAssetLoaderD
 TextureArrayTerrain_debug_libraries += NvGamepadD
 #TextureArrayTerrain_debug_libraries += NvGLUtilsD
 TextureArrayTerrain_debug_libraries += NvModelD
-TextureArrayTerrain_debug_libraries += NvUID NvGLUtilsD glfw3 
+TextureArrayTerrain_debug_libraries += NvUID NvGLUtilsD glfw 
 TextureArrayTerrain_debug_libraries += R3D
 TextureArrayTerrain_debug_common_cflags	:= $(TextureArrayTerrain_custom_cflags)
 TextureArrayTerrain_debug_common_cflags    += -MMD
@@ -69,7 +69,7 @@ TextureArrayTerrain_debug_cppflags  += -g
 TextureArrayTerrain_debug_lflags    := $(TextureArrayTerrain_custom_lflags)
 TextureArrayTerrain_debug_lflags    += $(addprefix -L, $(TextureArrayTerrain_debug_lpaths))
 TextureArrayTerrain_debug_lflags    += -Wl,--no-as-needed $(addprefix -l, $(TextureArrayTerrain_debug_libraries))
-TextureArrayTerrain_debug_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+TextureArrayTerrain_debug_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 TextureArrayTerrain_debug_lflags  += -m64
 TextureArrayTerrain_debug_lflags  += -m64
 TextureArrayTerrain_debug_objsdir  = $(OBJS_DIR)/TextureArrayTerrain_debug
@@ -158,7 +158,7 @@ TextureArrayTerrain_release_libraries += NvAssetLoader
 TextureArrayTerrain_release_libraries += NvGamepad
 #TextureArrayTerrain_release_libraries += NvGLUtils
 TextureArrayTerrain_release_libraries += NvModel
-TextureArrayTerrain_release_libraries += NvUI NvGLUtils glfw3 
+TextureArrayTerrain_release_libraries += NvUI NvGLUtils glfw 
 TextureArrayTerrain_release_libraries += R3
 TextureArrayTerrain_release_common_cflags	:= $(TextureArrayTerrain_custom_cflags)
 TextureArrayTerrain_release_common_cflags    += -MMD
@@ -177,7 +177,7 @@ TextureArrayTerrain_release_cppflags  += -O2
 TextureArrayTerrain_release_lflags    := $(TextureArrayTerrain_custom_lflags)
 TextureArrayTerrain_release_lflags    += $(addprefix -L, $(TextureArrayTerrain_release_lpaths))
 TextureArrayTerrain_release_lflags    += -Wl,--no-as-needed $(addprefix -l, $(TextureArrayTerrain_release_libraries))
-TextureArrayTerrain_release_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+TextureArrayTerrain_release_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 TextureArrayTerrain_release_lflags  += -m64
 TextureArrayTerrain_release_lflags  += -m64
 TextureArrayTerrain_release_objsdir  = $(OBJS_DIR)/TextureArrayTerrain_release

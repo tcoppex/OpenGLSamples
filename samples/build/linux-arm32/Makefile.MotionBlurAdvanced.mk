@@ -57,7 +57,7 @@ MotionBlurAdvanced_debug_cflags  += -g
 MotionBlurAdvanced_debug_lflags    := $(MotionBlurAdvanced_custom_lflags)
 MotionBlurAdvanced_debug_lflags    += $(addprefix -L, $(MotionBlurAdvanced_debug_lpaths))
 MotionBlurAdvanced_debug_lflags    += -Wl,--start-group $(addprefix -l, $(MotionBlurAdvanced_debug_libraries)) -Wl,--end-group
-MotionBlurAdvanced_debug_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+MotionBlurAdvanced_debug_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 MotionBlurAdvanced_debug_objsdir  := $(OBJS_DIR)/MotionBlurAdvanced_debug
 MotionBlurAdvanced_debug_obj      := 
 MotionBlurAdvanced_debug_cpp_o    = $(addprefix $(MotionBlurAdvanced_debug_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(MotionBlurAdvanced_cppfiles)))))
@@ -139,7 +139,7 @@ MotionBlurAdvanced_release_cflags  += -O2
 MotionBlurAdvanced_release_lflags    := $(MotionBlurAdvanced_custom_lflags)
 MotionBlurAdvanced_release_lflags    += $(addprefix -L, $(MotionBlurAdvanced_release_lpaths))
 MotionBlurAdvanced_release_lflags    += -Wl,--start-group $(addprefix -l, $(MotionBlurAdvanced_release_libraries)) -Wl,--end-group
-MotionBlurAdvanced_release_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+MotionBlurAdvanced_release_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 MotionBlurAdvanced_release_objsdir  := $(OBJS_DIR)/MotionBlurAdvanced_release
 MotionBlurAdvanced_release_obj      := 
 MotionBlurAdvanced_release_cpp_o    = $(addprefix $(MotionBlurAdvanced_release_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(MotionBlurAdvanced_cppfiles)))))

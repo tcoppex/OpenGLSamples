@@ -45,7 +45,7 @@ MotionBlur_debug_libraries += NvAssetLoaderD
 MotionBlur_debug_libraries += NvGamepadD
 #MotionBlur_debug_libraries += NvGLUtilsD
 MotionBlur_debug_libraries += NvModelD
-MotionBlur_debug_libraries += NvUID NvGLUtilsD glfw3 
+MotionBlur_debug_libraries += NvUID NvGLUtilsD glfw 
 MotionBlur_debug_common_cflags	:= $(MotionBlur_custom_cflags)
 MotionBlur_debug_common_cflags    += -MMD
 MotionBlur_debug_common_cflags    += $(addprefix -D, $(MotionBlur_debug_defines))
@@ -63,7 +63,7 @@ MotionBlur_debug_cppflags  += -g
 MotionBlur_debug_lflags    := $(MotionBlur_custom_lflags)
 MotionBlur_debug_lflags    += $(addprefix -L, $(MotionBlur_debug_lpaths))
 MotionBlur_debug_lflags    += -Wl,--no-as-needed $(addprefix -l, $(MotionBlur_debug_libraries))
-MotionBlur_debug_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+MotionBlur_debug_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 MotionBlur_debug_lflags  += -m32
 MotionBlur_debug_objsdir  = $(OBJS_DIR)/MotionBlur_debug
 MotionBlur_debug_cpp_o    = $(addprefix $(MotionBlur_debug_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(MotionBlur_cppfiles)))))
@@ -150,7 +150,7 @@ MotionBlur_release_libraries += NvAssetLoader
 MotionBlur_release_libraries += NvGamepad
 #MotionBlur_release_libraries += NvGLUtils
 MotionBlur_release_libraries += NvModel
-MotionBlur_release_libraries += NvUI NvGLUtils glfw3 
+MotionBlur_release_libraries += NvUI NvGLUtils glfw 
 MotionBlur_release_common_cflags	:= $(MotionBlur_custom_cflags)
 MotionBlur_release_common_cflags    += -MMD
 MotionBlur_release_common_cflags    += $(addprefix -D, $(MotionBlur_release_defines))
@@ -168,7 +168,7 @@ MotionBlur_release_cppflags  += -O2
 MotionBlur_release_lflags    := $(MotionBlur_custom_lflags)
 MotionBlur_release_lflags    += $(addprefix -L, $(MotionBlur_release_lpaths))
 MotionBlur_release_lflags    += -Wl,--no-as-needed $(addprefix -l, $(MotionBlur_release_libraries))
-MotionBlur_release_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+MotionBlur_release_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 MotionBlur_release_lflags  += -m32
 MotionBlur_release_objsdir  = $(OBJS_DIR)/MotionBlur_release
 MotionBlur_release_cpp_o    = $(addprefix $(MotionBlur_release_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(MotionBlur_cppfiles)))))

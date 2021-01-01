@@ -46,7 +46,7 @@ NormalBlendedDecal_debug_libraries += NvAssetLoaderD
 NormalBlendedDecal_debug_libraries += NvGamepadD
 #NormalBlendedDecal_debug_libraries += NvGLUtilsD
 NormalBlendedDecal_debug_libraries += NvModelD
-NormalBlendedDecal_debug_libraries += NvUID NvGLUtilsD glfw3 
+NormalBlendedDecal_debug_libraries += NvUID NvGLUtilsD glfw 
 NormalBlendedDecal_debug_common_cflags	:= $(NormalBlendedDecal_custom_cflags)
 NormalBlendedDecal_debug_common_cflags    += -MMD
 NormalBlendedDecal_debug_common_cflags    += $(addprefix -D, $(NormalBlendedDecal_debug_defines))
@@ -64,7 +64,7 @@ NormalBlendedDecal_debug_cppflags  += -g
 NormalBlendedDecal_debug_lflags    := $(NormalBlendedDecal_custom_lflags)
 NormalBlendedDecal_debug_lflags    += $(addprefix -L, $(NormalBlendedDecal_debug_lpaths))
 NormalBlendedDecal_debug_lflags    += -Wl,--no-as-needed $(addprefix -l, $(NormalBlendedDecal_debug_libraries))
-NormalBlendedDecal_debug_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+NormalBlendedDecal_debug_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 NormalBlendedDecal_debug_lflags  += -m64
 NormalBlendedDecal_debug_lflags  += -m64
 NormalBlendedDecal_debug_objsdir  = $(OBJS_DIR)/NormalBlendedDecal_debug
@@ -153,7 +153,7 @@ NormalBlendedDecal_release_libraries += NvAssetLoader
 NormalBlendedDecal_release_libraries += NvGamepad
 #NormalBlendedDecal_release_libraries += NvGLUtils
 NormalBlendedDecal_release_libraries += NvModel
-NormalBlendedDecal_release_libraries += NvUI NvGLUtils glfw3 
+NormalBlendedDecal_release_libraries += NvUI NvGLUtils glfw 
 NormalBlendedDecal_release_common_cflags	:= $(NormalBlendedDecal_custom_cflags)
 NormalBlendedDecal_release_common_cflags    += -MMD
 NormalBlendedDecal_release_common_cflags    += $(addprefix -D, $(NormalBlendedDecal_release_defines))
@@ -171,7 +171,7 @@ NormalBlendedDecal_release_cppflags  += -O2
 NormalBlendedDecal_release_lflags    := $(NormalBlendedDecal_custom_lflags)
 NormalBlendedDecal_release_lflags    += $(addprefix -L, $(NormalBlendedDecal_release_lpaths))
 NormalBlendedDecal_release_lflags    += -Wl,--no-as-needed $(addprefix -l, $(NormalBlendedDecal_release_libraries))
-NormalBlendedDecal_release_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+NormalBlendedDecal_release_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 NormalBlendedDecal_release_lflags  += -m64
 NormalBlendedDecal_release_lflags  += -m64
 NormalBlendedDecal_release_objsdir  = $(OBJS_DIR)/NormalBlendedDecal_release

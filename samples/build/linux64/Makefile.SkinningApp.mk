@@ -47,7 +47,7 @@ SkinningApp_debug_libraries += NvAssetLoaderD
 SkinningApp_debug_libraries += NvGamepadD
 #SkinningApp_debug_libraries += NvGLUtilsD
 SkinningApp_debug_libraries += NvModelD
-SkinningApp_debug_libraries += NvUID NvGLUtilsD glfw3 
+SkinningApp_debug_libraries += NvUID NvGLUtilsD glfw 
 SkinningApp_debug_common_cflags	:= $(SkinningApp_custom_cflags)
 SkinningApp_debug_common_cflags    += -MMD
 SkinningApp_debug_common_cflags    += $(addprefix -D, $(SkinningApp_debug_defines))
@@ -65,7 +65,7 @@ SkinningApp_debug_cppflags  += -g
 SkinningApp_debug_lflags    := $(SkinningApp_custom_lflags)
 SkinningApp_debug_lflags    += $(addprefix -L, $(SkinningApp_debug_lpaths))
 SkinningApp_debug_lflags    += -Wl,--no-as-needed $(addprefix -l, $(SkinningApp_debug_libraries))
-SkinningApp_debug_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+SkinningApp_debug_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 SkinningApp_debug_lflags  += -m64
 SkinningApp_debug_lflags  += -m64
 SkinningApp_debug_objsdir  = $(OBJS_DIR)/SkinningApp_debug
@@ -154,7 +154,7 @@ SkinningApp_release_libraries += NvAssetLoader
 SkinningApp_release_libraries += NvGamepad
 #SkinningApp_release_libraries += NvGLUtils
 SkinningApp_release_libraries += NvModel
-SkinningApp_release_libraries += NvUI NvGLUtils glfw3 
+SkinningApp_release_libraries += NvUI NvGLUtils glfw 
 SkinningApp_release_common_cflags	:= $(SkinningApp_custom_cflags)
 SkinningApp_release_common_cflags    += -MMD
 SkinningApp_release_common_cflags    += $(addprefix -D, $(SkinningApp_release_defines))
@@ -172,7 +172,7 @@ SkinningApp_release_cppflags  += -O2
 SkinningApp_release_lflags    := $(SkinningApp_custom_lflags)
 SkinningApp_release_lflags    += $(addprefix -L, $(SkinningApp_release_lpaths))
 SkinningApp_release_lflags    += -Wl,--no-as-needed $(addprefix -l, $(SkinningApp_release_libraries))
-SkinningApp_release_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+SkinningApp_release_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 SkinningApp_release_lflags  += -m64
 SkinningApp_release_lflags  += -m64
 SkinningApp_release_objsdir  = $(OBJS_DIR)/SkinningApp_release

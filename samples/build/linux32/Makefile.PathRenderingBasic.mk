@@ -45,7 +45,7 @@ PathRenderingBasic_debug_libraries += NvAssetLoaderD
 PathRenderingBasic_debug_libraries += NvGamepadD
 #PathRenderingBasic_debug_libraries += NvGLUtilsD
 PathRenderingBasic_debug_libraries += NvModelD
-PathRenderingBasic_debug_libraries += NvUID NvGLUtilsD glfw3 
+PathRenderingBasic_debug_libraries += NvUID NvGLUtilsD glfw 
 PathRenderingBasic_debug_common_cflags	:= $(PathRenderingBasic_custom_cflags)
 PathRenderingBasic_debug_common_cflags    += -MMD
 PathRenderingBasic_debug_common_cflags    += $(addprefix -D, $(PathRenderingBasic_debug_defines))
@@ -63,7 +63,7 @@ PathRenderingBasic_debug_cppflags  += -g
 PathRenderingBasic_debug_lflags    := $(PathRenderingBasic_custom_lflags)
 PathRenderingBasic_debug_lflags    += $(addprefix -L, $(PathRenderingBasic_debug_lpaths))
 PathRenderingBasic_debug_lflags    += -Wl,--no-as-needed $(addprefix -l, $(PathRenderingBasic_debug_libraries))
-PathRenderingBasic_debug_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+PathRenderingBasic_debug_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 PathRenderingBasic_debug_lflags  += -m32
 PathRenderingBasic_debug_objsdir  = $(OBJS_DIR)/PathRenderingBasic_debug
 PathRenderingBasic_debug_cpp_o    = $(addprefix $(PathRenderingBasic_debug_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(PathRenderingBasic_cppfiles)))))
@@ -150,7 +150,7 @@ PathRenderingBasic_release_libraries += NvAssetLoader
 PathRenderingBasic_release_libraries += NvGamepad
 #PathRenderingBasic_release_libraries += NvGLUtils
 PathRenderingBasic_release_libraries += NvModel
-PathRenderingBasic_release_libraries += NvUI NvGLUtils glfw3 
+PathRenderingBasic_release_libraries += NvUI NvGLUtils glfw 
 PathRenderingBasic_release_common_cflags	:= $(PathRenderingBasic_custom_cflags)
 PathRenderingBasic_release_common_cflags    += -MMD
 PathRenderingBasic_release_common_cflags    += $(addprefix -D, $(PathRenderingBasic_release_defines))
@@ -168,7 +168,7 @@ PathRenderingBasic_release_cppflags  += -O2
 PathRenderingBasic_release_lflags    := $(PathRenderingBasic_custom_lflags)
 PathRenderingBasic_release_lflags    += $(addprefix -L, $(PathRenderingBasic_release_lpaths))
 PathRenderingBasic_release_lflags    += -Wl,--no-as-needed $(addprefix -l, $(PathRenderingBasic_release_libraries))
-PathRenderingBasic_release_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+PathRenderingBasic_release_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 PathRenderingBasic_release_lflags  += -m32
 PathRenderingBasic_release_objsdir  = $(OBJS_DIR)/PathRenderingBasic_release
 PathRenderingBasic_release_cpp_o    = $(addprefix $(PathRenderingBasic_release_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(PathRenderingBasic_cppfiles)))))

@@ -52,7 +52,7 @@ ComputeWaterSimulation_debug_libraries += NvAssetLoaderD
 ComputeWaterSimulation_debug_libraries += NvGamepadD
 #ComputeWaterSimulation_debug_libraries += NvGLUtilsD
 ComputeWaterSimulation_debug_libraries += NvModelD
-ComputeWaterSimulation_debug_libraries += NvUID NvGLUtilsD glfw3 
+ComputeWaterSimulation_debug_libraries += NvUID NvGLUtilsD glfw 
 ComputeWaterSimulation_debug_libraries += R3D
 ComputeWaterSimulation_debug_common_cflags	:= $(ComputeWaterSimulation_custom_cflags)
 ComputeWaterSimulation_debug_common_cflags    += -MMD
@@ -71,7 +71,7 @@ ComputeWaterSimulation_debug_cppflags  += -g
 ComputeWaterSimulation_debug_lflags    := $(ComputeWaterSimulation_custom_lflags)
 ComputeWaterSimulation_debug_lflags    += $(addprefix -L, $(ComputeWaterSimulation_debug_lpaths))
 ComputeWaterSimulation_debug_lflags    += -Wl,--no-as-needed $(addprefix -l, $(ComputeWaterSimulation_debug_libraries))
-ComputeWaterSimulation_debug_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+ComputeWaterSimulation_debug_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 ComputeWaterSimulation_debug_lflags  += -m64
 ComputeWaterSimulation_debug_lflags  += -m64
 ComputeWaterSimulation_debug_objsdir  = $(OBJS_DIR)/ComputeWaterSimulation_debug
@@ -161,7 +161,7 @@ ComputeWaterSimulation_release_libraries += NvAssetLoader
 ComputeWaterSimulation_release_libraries += NvGamepad
 #ComputeWaterSimulation_release_libraries += NvGLUtils
 ComputeWaterSimulation_release_libraries += NvModel
-ComputeWaterSimulation_release_libraries += NvUI NvGLUtils glfw3 
+ComputeWaterSimulation_release_libraries += NvUI NvGLUtils glfw 
 ComputeWaterSimulation_release_libraries += R3
 ComputeWaterSimulation_release_common_cflags	:= $(ComputeWaterSimulation_custom_cflags)
 ComputeWaterSimulation_release_common_cflags    += -MMD
@@ -180,7 +180,7 @@ ComputeWaterSimulation_release_cppflags  += -O2
 ComputeWaterSimulation_release_lflags    := $(ComputeWaterSimulation_custom_lflags)
 ComputeWaterSimulation_release_lflags    += $(addprefix -L, $(ComputeWaterSimulation_release_lpaths))
 ComputeWaterSimulation_release_lflags    += -Wl,--no-as-needed $(addprefix -l, $(ComputeWaterSimulation_release_libraries))
-ComputeWaterSimulation_release_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+ComputeWaterSimulation_release_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 ComputeWaterSimulation_release_lflags  += -m64
 ComputeWaterSimulation_release_lflags  += -m64
 ComputeWaterSimulation_release_objsdir  = $(OBJS_DIR)/ComputeWaterSimulation_release

@@ -60,7 +60,7 @@ ComputeParticles_debug_cflags  += -g
 ComputeParticles_debug_lflags    := $(ComputeParticles_custom_lflags)
 ComputeParticles_debug_lflags    += $(addprefix -L, $(ComputeParticles_debug_lpaths))
 ComputeParticles_debug_lflags    += -Wl,--start-group $(addprefix -l, $(ComputeParticles_debug_libraries)) -Wl,--end-group
-ComputeParticles_debug_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+ComputeParticles_debug_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 ComputeParticles_debug_objsdir  := $(OBJS_DIR)/ComputeParticles_debug
 ComputeParticles_debug_obj      := 
 ComputeParticles_debug_cpp_o    = $(addprefix $(ComputeParticles_debug_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(ComputeParticles_cppfiles)))))
@@ -143,7 +143,7 @@ ComputeParticles_release_cflags  += -O2
 ComputeParticles_release_lflags    := $(ComputeParticles_custom_lflags)
 ComputeParticles_release_lflags    += $(addprefix -L, $(ComputeParticles_release_lpaths))
 ComputeParticles_release_lflags    += -Wl,--start-group $(addprefix -l, $(ComputeParticles_release_libraries)) -Wl,--end-group
-ComputeParticles_release_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+ComputeParticles_release_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 ComputeParticles_release_objsdir  := $(OBJS_DIR)/ComputeParticles_release
 ComputeParticles_release_obj      := 
 ComputeParticles_release_cpp_o    = $(addprefix $(ComputeParticles_release_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(ComputeParticles_cppfiles)))))

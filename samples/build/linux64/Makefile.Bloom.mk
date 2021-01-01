@@ -46,7 +46,7 @@ Bloom_debug_libraries += NvAssetLoaderD
 Bloom_debug_libraries += NvGamepadD
 #Bloom_debug_libraries += NvGLUtilsD
 Bloom_debug_libraries += NvModelD
-Bloom_debug_libraries += NvUID NvGLUtilsD glfw3 
+Bloom_debug_libraries += NvUID NvGLUtilsD glfw 
 Bloom_debug_libraries += R3D
 Bloom_debug_common_cflags	:= $(Bloom_custom_cflags)
 Bloom_debug_common_cflags    += -MMD
@@ -65,7 +65,7 @@ Bloom_debug_cppflags  += -g
 Bloom_debug_lflags    := $(Bloom_custom_lflags)
 Bloom_debug_lflags    += $(addprefix -L, $(Bloom_debug_lpaths))
 Bloom_debug_lflags    += -Wl,--no-as-needed $(addprefix -l, $(Bloom_debug_libraries))
-Bloom_debug_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+Bloom_debug_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 Bloom_debug_lflags  += -m64
 Bloom_debug_lflags  += -m64
 Bloom_debug_objsdir  = $(OBJS_DIR)/Bloom_debug
@@ -154,7 +154,7 @@ Bloom_release_libraries += NvAssetLoader
 Bloom_release_libraries += NvGamepad
 #Bloom_release_libraries += NvGLUtils
 Bloom_release_libraries += NvModel
-Bloom_release_libraries += NvUI NvGLUtils glfw3 
+Bloom_release_libraries += NvUI NvGLUtils glfw 
 Bloom_release_libraries += R3
 Bloom_release_common_cflags	:= $(Bloom_custom_cflags)
 Bloom_release_common_cflags    += -MMD
@@ -173,7 +173,7 @@ Bloom_release_cppflags  += -O2
 Bloom_release_lflags    := $(Bloom_custom_lflags)
 Bloom_release_lflags    += $(addprefix -L, $(Bloom_release_lpaths))
 Bloom_release_lflags    += -Wl,--no-as-needed $(addprefix -l, $(Bloom_release_libraries))
-Bloom_release_lflags  += -Wl,--unresolved-symbols=ignore-in-shared-libs
+Bloom_release_lflags  += -fPIC #-Wl,--unresolved-symbols=ignore-in-shared-libs
 Bloom_release_lflags  += -m64
 Bloom_release_lflags  += -m64
 Bloom_release_objsdir  = $(OBJS_DIR)/Bloom_release
