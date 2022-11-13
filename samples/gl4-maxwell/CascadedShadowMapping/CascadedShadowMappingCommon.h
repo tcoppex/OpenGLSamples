@@ -33,6 +33,8 @@
 //----------------------------------------------------------------------------------
 #pragma once
 
+#include <limits>
+
 #define MAX_CAMERA_FRUSTUM_SPLIT_COUNT (4)
 
 struct ShadowMapMethod {
